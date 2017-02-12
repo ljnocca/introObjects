@@ -10,6 +10,15 @@
 // vice-versa.
 
 // see test.js for example usage
+function flipColor(object){
+    if (object.color==='blue'){
+        object.color = 'red'
+    }
+    else if (object.color==='red'){
+        object.color='blue'
+    }
+    return object
+}
 
 
 // Part 1
@@ -19,6 +28,20 @@
 // of strings, where each string is a customer's full name.
 
 // see test.js for example usage
+var testArray = [{first: 'Laurent',last: 'Nocca'},{first: 'James',last: 'Harden'}]
+
+function concatenatedNames(object){
+    var result = object.first + " " + object.last
+    return result
+}
+
+function getFullNames(arrayOfObjects){
+    var arrayOfString = []
+    for (var i = 0; i<arrayOfObjects.length; i++){
+        arrayOfString.push(concatenatedNames(arrayOfObjects[i]))
+    }
+    return arrayOfString
+}
 
 // Part 2
 
@@ -33,6 +56,28 @@
 
 
 // see test.js for example usage
+function replaceWithR (string){
+    var newWord = "r" + string.substring(1,string.length)
+    return newWord
+}
+
+function generateDog(dogName){
+    var dog = {
+        name: dogName,
+        legs: 4,
+        color: 'golden',
+        speak: function(string){
+            var dogSentence = ''
+            var stringArray = string.split (' ')
+            for (var i = 0; i < stringArray.length; i++){
+                var updatedWord = replaceWithR(stringArray[i])
+                dogSentence += ' ' + updatedWord
+            }
+            return dogSentence.trim()
+        }   
+    }
+    return dog
+}
 
 
 // Part 3
@@ -45,6 +90,14 @@
 
 // see test.js for example usage
 
+function pluck(arrayOfObjects, property){
+    var propertyArray = []
+    for (var i = 0; i<arrayOfObjects.length; i ++){
+        propertyArray.push(arrayOfObjects[i][property])
+        }
+    return propertyArray
+}
+
 // Part 4
 
 // Write a function called getCounts that takes a string of text as input and returns
@@ -54,6 +107,15 @@
 
 
 // check test.js for examples of how this function should be used.
+function getCounts(string){
+    var lowerCaseString = string.toLowerCase()//lower case all string
+    var stringArray = lowerCaseString.split(' ')//split string into array
+    var sortedArray = stringArray.sort()//sort array
+    var wordCount= {}
+    sortedArray.forEach(function(i){//looked this up on google and don't quite understand why it works
+        wordCount[i]= (wordCount[i]||0)+1})//??
+    return wordCount
+}
 
 // ADVENTURE MODE ( 5 - 8 )
 
