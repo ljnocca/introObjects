@@ -139,7 +139,14 @@ function getCounts(string){
 //   2b: 'apartment_no',
 //   failing: 'structural_integrity'
 // }
-
+function reverseObject(object){
+    var newObject = {}
+    for (var prop in object){
+        newObject += object[prop]+": "+prop+" "
+    }
+    
+    return newObject
+}
 
 // Part 6
 

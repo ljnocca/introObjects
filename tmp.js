@@ -90,10 +90,10 @@ function generateDog(dogName){
 
 // see test.js for example usage
 
-function pluck(objectName, property){
+function pluck(arrayOfObjects, property){
     var propertyArray = []
-    for (var i = 0; i<objectName.length; i ++){
-        propertyArray.push(objectName[i][property])
+    for (var i = 0; i<arrayOfObjects.length; i ++){
+        propertyArray.push(arrayOfObjects[i][property])
         }
     return propertyArray
 }
@@ -112,8 +112,8 @@ function getCounts(string){
     var stringArray = lowerCaseString.split(' ')//split string into array
     var sortedArray = stringArray.sort()//sort array
     var wordCount= {}
-    sortedArray.forEach(function(i){
-        wordCount[i]= (wordCount[i]||0)+1})
+    sortedArray.forEach(function(i){//looked this up on google and don't quite understand why it works
+        wordCount[i]= (wordCount[i]||0)+1})//??
     return wordCount
 }
 
@@ -139,7 +139,14 @@ function getCounts(string){
 //   2b: 'apartment_no',
 //   failing: 'structural_integrity'
 // }
-
+function reverseObject(object){
+    var newObject = {}
+    for (var prop in object){
+        newObject += object[prop]+": "+prop+" "
+    }
+    
+    return newObject
+}
 
 // Part 6
 
