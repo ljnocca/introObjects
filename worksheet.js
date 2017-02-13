@@ -118,8 +118,8 @@ function getCounts(string){
                counter ++
                }
        }
-               wordCount[stringArray[i]]=counter
-               counter = 0
+               wordCount[stringArray[i]]=counter//once word is done finding itself (once or multiple times) the word is assigned as the key and the counter is the value of that key
+               counter = 0 //reset counter to for next loop
     }
     return wordCount
 }
