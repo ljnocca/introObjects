@@ -107,21 +107,23 @@ function pluck(arrayOfObjects, property){
 
 
 // check test.js for examples of how this function should be used.
-function getCounts(string){
-    var lowerCaseString = string.toLowerCase()//lower case all string
-    var stringArray = lowerCaseString.split(/\W+/)//split string into array
-    var wordCount= {}
-    var counter = 0
-    for (var i = 0; i< stringArray.length; i++){
-       for (var j = 0; j < stringArray.length; j++){
-           if (stringArray[i]===stringArray[j]){
-               counter ++
-               }
-       }
-               wordCount[stringArray[i]]=counter
-               counter = 0
+
+var getCounts = function(str) {
+    var lowerCase = str.toLowerCase()
+    var strArray = lowerCase.split(/\W+/)  
+    
+    var obj = {}
+    
+    for(var i=0; i<strArray.length; i++){
+      if(!obj[strArray[i]]){
+          obj[strArray[i]] = 1
+      }
+        else{
+            obj[strArray[i]] += 1
+            }
     }
-    return wordCount
+    return obj
+    
 }
 
 // ADVENTURE MODE ( 5 - 8 )
@@ -147,11 +149,10 @@ function getCounts(string){
 //   failing: 'structural_integrity'
 // }
 function reverseObject(object){
-    var newObject = new Object()
-    for (var prop in object){
-        newObject.var = prop
-    }
-    
+    var newObject = {}
+    for (var key in object){
+        newObject[object[key]] = key //RIGHT SIDE: the key is the result now. LEFT SIDE: new newObject's keys are the result of original object passing that key through the original object
+    }    
     return newObject
 }
 
