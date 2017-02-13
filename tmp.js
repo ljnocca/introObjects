@@ -109,11 +109,18 @@ function pluck(arrayOfObjects, property){
 // check test.js for examples of how this function should be used.
 function getCounts(string){
     var lowerCaseString = string.toLowerCase()//lower case all string
-    var stringArray = lowerCaseString.split(' ')//split string into array
-    var sortedArray = stringArray.sort()//sort array
+    var stringArray = lowerCaseString.split(/\W+/)//split string into array
     var wordCount= {}
-    sortedArray.forEach(function(i){//looked this up on google and don't quite understand why it works
-        wordCount[i]= (wordCount[i]||0)+1})//??
+    var counter = 0
+    for (var i = 0; i< stringArray.length; i++){
+       for (var j = 0; j < stringArray.length; j++){
+           if (stringArray[i]===stringArray[j]){
+               counter ++
+               }
+       }
+               wordCount[stringArray[i]]=counter
+               counter = 0
+    }
     return wordCount
 }
 
@@ -140,9 +147,9 @@ function getCounts(string){
 //   failing: 'structural_integrity'
 // }
 function reverseObject(object){
-    var newObject = {}
+    var newObject = new Object()
     for (var prop in object){
-        newObject += object[prop]+": "+prop+" "
+        newObject.var = prop
     }
     
     return newObject
