@@ -165,6 +165,22 @@ function reverseObject(object){
 var users = [{obama: 'president@gmail.com',hobby: 'basketball'},{trump: 'americamoneywin@yahoo.com', hobby:'dealmaking'},{bush: 'jeb!@hotmail.com',hobby:'portraiture'}]
 // should yield: [{'president@gmail.com': 'obama',basketball: 'hobby'}, ....]
 
+function reverseObject(object){
+    var newObject = {}
+    for (var key in object){
+        newObject[object[key]] = key
+    }    
+    return newObject
+}
+
+function reverseAll(arrayOfObjects){
+    var newObjects = []
+    for (var i = 0; i<arrayOfObjects.length; i++){
+        newObjects.push(reverseObject(arrayOfObjects[i]))
+    }
+    return newObjects
+}
+
 // Part 7
 
 // Write a function where() that takes two inputs, a list of objects and 
