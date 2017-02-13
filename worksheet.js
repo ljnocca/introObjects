@@ -109,12 +109,12 @@ function pluck(arrayOfObjects, property){
 // check test.js for examples of how this function should be used.
 function getCounts(string){
     var lowerCaseString = string.toLowerCase()//lower case all string
-    var stringArray = lowerCaseString.split(/\W+/)//split string into array
+    var stringArray = lowerCaseString.split(/\W+/)//split string into array. looked up the regex to ignore punctuation etc..
     var wordCount= {}
-    var counter = 0
+    var counter = 0 //counter starsts at 0
     for (var i = 0; i< stringArray.length; i++){
        for (var j = 0; j < stringArray.length; j++){
-           if (stringArray[i]===stringArray[j]){
+           if (stringArray[i]===stringArray[j]){//compare the same array to itself if word is discovered to equal itself just once, then it's only there once
                counter ++
                }
        }
